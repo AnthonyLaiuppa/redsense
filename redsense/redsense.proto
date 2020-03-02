@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package redsense;
+
+service RedsenseService {
+    rpc Generate(MediaPage) returns (MediaAnalysis);
+}
+
+message MediaPage {
+  string source = 1;
+  string url = 2;
+  string title = 3;
+  string body = 4;
+  uint64 datetime =5;
+}
+
+message MediaAnalysis {
+  string source = 1;
+  string url = 2;
+  string title = 3;
+  string body = 4;
+  uint64 datetime =5;
+  string sentiment = 6;
+}
