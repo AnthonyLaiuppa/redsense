@@ -29,7 +29,7 @@ func shipIt(out pb.MediaPage)(*pb.MediaAnalysis,error){
 		log.Fatalf("could not greet: %v", err)
 	}
 
-	log.Printf("Media from %s\n Has sentiment %s\n", r.Sentiment, r.Url)
+	log.Printf("Media from: %s\n Has sentiment: %s\n", r.Url, r.Sentiment)
 
 	return r,nil
 }
