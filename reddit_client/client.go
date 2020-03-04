@@ -21,7 +21,7 @@ func shipIt(out pb.MediaPage)(*pb.MediaAnalysis,error){
 	defer conn.Close()
 
 	c := pb.NewRedsenseServiceClient(conn)
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
 	r, err := c.Generate(ctx, &out)
@@ -29,7 +29,7 @@ func shipIt(out pb.MediaPage)(*pb.MediaAnalysis,error){
 		log.Fatalf("could not greet: %v", err)
 	}
 
-	log.Printf("Media from %s has sentiment %s, further inspection at URL %s", r.Source, r.Sentiment, r.Url)
+	log.Printf("Media from %s\n Has sentiment %s\n", r.Sentiment, r.Url)
 
 	return r,nil
 }
